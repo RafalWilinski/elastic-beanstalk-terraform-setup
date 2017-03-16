@@ -10,7 +10,7 @@ Purpose of this repo is to document and simplify deployment & setup process of D
 1. Run ```terraform plan -out plan.tfplan```
 2. Run ```terraform apply plan.tfplan``` - this may take up to 15 minutes
 
-Alternatively you can place variables insite `terraform.tfvars` file instead of pasting them into CLI input.
+Alternatively you can place variables inside `terraform.tfvars` file instead of pasting them into CLI input.
 
 
 ### Manual deployment
@@ -31,4 +31,4 @@ AWS_SECRET_ACCESS_KEY=qV9xmxeTlxlbA3vgOxxxxCk+uELlWOrdmpC/oXww \
 ```
 
 ### Automatic deployment
-Edit your `circle.yml` file to invoke `deploy.sh` script in `post.test` or `deploy` hook.
+Edit your `circle.yml` file to invoke `deploy.sh` script in `post.test` or `deploy` hook. Don't forget to fill out ENV variables in CircleCI setup.
