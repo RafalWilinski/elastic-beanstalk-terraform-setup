@@ -21,7 +21,7 @@ resource "aws_elastic_beanstalk_application" "ng_beanstalk_application" {
 }
 
 resource "aws_elastic_beanstalk_environment" "ng_beanstalk_application_environment" {
-  name                = "${var.application_name}"
+  name                = "${var.application_name}-${var.application_environment}"
   application         = "${aws_elastic_beanstalk_application.ng_beanstalk_application.name}"
   solution_stack_name = "64bit Amazon Linux 2016.09 v2.5.1 running Docker 1.12.6"
   tier                = "WebServer"
