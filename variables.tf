@@ -1,9 +1,5 @@
-variable "aws_access_key" {
-  description = "Access Key of IAM User with sufficient permissions to create Beanstalk Application, provision EC2 instance, create S3 bucket and manager Container Registry"
-}
-
-variable "aws_secret_key" {
-  description = "Secret Key of IAM User with sufficient permissions to create Beanstalk Application, provision EC2 instance, create S3 bucket and manager Container Registry"
+variable "profile" {
+  description = "Name of your profile inside ~/.aws/credentials"
 }
 
 variable "application_name" {

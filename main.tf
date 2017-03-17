@@ -1,8 +1,7 @@
 # Configure AWS Credentials & Region
 provider "aws" {
-  access_key = ""
-  secret_key = ""
-  region     = "${var.region}"
+  profile = "${var.profile}"
+  region  = "${var.region}"
 }
 
 # S3 Bucket for storing Elastic Beanstalk task definitions
@@ -17,8 +16,8 @@ resource "aws_ecr_repository" "ng_container_repository" {
 
 # Beanstalk instance profile
 resource "aws_iam_instance_profile" "ng_beanstalk_ec2" {
-  name  = "beanstalk-ec2-user"
-  roles = ["${aws_iam_role.beanstalk_ec2.name}"]
+  name  = "ng-beanstalk-ec2-user"
+  roles = ["${aws_iam_role.ng_beanstalk_ec2.name}"]
 }
 
 resource "aws_iam_role" "ng_beanstalk_ec2" {
@@ -45,7 +44,7 @@ EOF
 # Overriding because by default Beanstalk does not have a permission to Read ECR
 resource "aws_iam_role_policy" "ng_beanstalk_ec2_policy" {
   name = "ng_beanstalk_ec2_policy_with_ECR"
-  role = "${aws_iam_role.test_role.id}"
+  role = "${aws_iam_role.ng_beanstalk_ec2.id}"
 
   policy = <<EOF
 {
@@ -68,7 +67,7 @@ resource "aws_iam_role_policy" "ng_beanstalk_ec2_policy" {
         "ecr:ListImages",
         "ecr:DescribeImages",
         "ecr:BatchGetImage",
-        "s3:*",
+        "s3:*"
       ],
       "Effect": "Allow",
       "Resource": "*"
@@ -105,5 +104,11 @@ resource "aws_elastic_beanstalk_environment" "ng_beanstalk_application_environme
 
     # Todo: As Variable
     value = "2"
+  }
+
+  setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name      = "IamInstanceProfile"
+    value     = "${aws_iam_instance_profile.ng_beanstalk_ec2.name}"
   }
 }
