@@ -14,6 +14,7 @@
 #
 # usage: ./deploy.sh name-of-application staging us-east-1 f0478bd7c2f584b41a49405c91a439ce9d944657
 
+set -e
 start=`date +%s`
 
 # Name of your application, should be the same as in setup
