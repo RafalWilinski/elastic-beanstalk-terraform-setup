@@ -6,6 +6,12 @@ Purpose of this repo is to document and simplify deployment & setup process of D
 - AWS IAM Role with access to IAM, EC2, Beanstalk & Elastic Container Registry/Engine and it's access & secret keys. Profile must be set inside `~/.aws/credentials` directory.
 - Terraform
 
+### Contents of repo
+ - ```Dockerrun.aws.json``` - AWS Beanstalk standard task definition. Tells Beanstalk which image from ECR it should use
+ - ```deploy.sh``` - script for deploying applications. App must be first set up
+ - ```*.tf``` files - Terraform infrastructure definition written in HCL (HashiCorp Configuration Language)
+ - ```clean.sh``` - script for cleaning temporary files
+
 ### Setup
 1. Run ```terraform plan -out plan.tfplan```
   - Fill out Name, Description & environment
