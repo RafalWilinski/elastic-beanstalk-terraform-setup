@@ -1,6 +1,6 @@
 # AWS Elastic Beanstalk + Docker Deploy Setup
 
-Purpose of this repo is to document and simplify deployment & setup process of Docker-based applications on AWS Elastic Beanstalk Applications.
+Purpose of this repo is to document and simplify deployment & setup process of Docker-based applications on AWS Elastic Beanstalk.
 
 ### Prerequisities
 - AWS IAM Role with access to IAM, EC2, Beanstalk & Elastic Container Registry/Engine and it's access & secret keys. Profile must be set inside `~/.aws/credentials` directory.
