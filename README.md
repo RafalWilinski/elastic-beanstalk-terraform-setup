@@ -36,9 +36,9 @@ For example:
 
 If you don't have your AWS credentials set as ENV variables:
 ```
-AWS_ACCOUNT_ID=696776776974 \
+AWS_ACCOUNT_ID=XX677677XXXX \
 AWS_ACCESS_KEY_ID=AKIAIXEXIX5JW5XM6XXX \
-AWS_SECRET_ACCESS_KEY=qV9xmxeTlxlbA3vgOxxxxCk+uELlWOrdmpC/oXww \
+AWS_SECRET_ACCESS_KEY=XXXxmxxXlxxbA3vgOxxxxCk+uXXXXOrdmpC/oXxx \
 ./deploy.sh my-app-name staging us-east-1 f0478bd7c2f584b41a49405c91a439ce9d944657
 ```
 
