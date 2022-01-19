@@ -18,3 +18,14 @@ variable "region" {
   default     = "us-east-1"
   description = "Defines where your app should be deployed"
 }
+
+variable "instance_type" {
+  default     = "t2.micro"
+  description = "Defines the EC2 instance type"
+}
+
+variable "autoscaling_max_size" {
+  default     = "2"
+  type        = string
+  description = "Defines the maximum autoscaling number of instances"
+}
