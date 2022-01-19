@@ -94,16 +94,14 @@ resource "aws_elastic_beanstalk_environment" "ng_beanstalk_application_environme
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "InstanceType"
 
-    # Todo: As Variable
-    value = "t2.micro"
+    value = var.instance_type
   }
 
   setting {
     namespace = "aws:autoscaling:asg"
     name      = "MaxSize"
 
-    # Todo: As Variable
-    value = "2"
+    value = var.autoscaling_max_size
   }
 
   setting {

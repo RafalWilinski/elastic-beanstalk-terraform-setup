@@ -4,3 +4,5 @@
 # aws_secret_key=thisIsSuperSecret
 #
 
+instance_type="t2.micro"
+autoscaling_max_size="2"
